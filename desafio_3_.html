@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaPet</title>
+</head>
+<body>
+
+    <h1>Welcom</h1>
+
+    <form action="login">
+    
+    
+
+        <label>
+
+            <input type="text" name="nombre" placeholder="name of pet"required>
+
+        </label>
+
+
+
+        <label>
+
+            <input type="number" name="edad" placeholder="age of pet" min="0"max="28"required>
+
+        </label>
+
+
+
+        <label >
+
+            <input type="email" id="email" name="email" placeholder="email"required>
+
+        </label>
+
+
+
+        <label> 
+
+            <input type="password" name="contraseña" placeholder="password"required>    
+
+        </label>
+
+
+
+        <label>
+
+            (male)
+
+            <input type="radio"name="genero"value="male"submit>
+
+            (female)
+
+            <input type="radio"name="genero"value="female">
+
+        </label>
+
+
+            <label for="tipo_mascota">Select you pet:</label>
+
+            <select id="tipo_mascota" name="tipo_de_mascota">
+
+                <option value="miau">cat</option>
+
+                <option value="guau">dog</option>
+
+                <option value="chillido">guinea pig</option>
+
+            
+                <option value="misterio">Other</option>
+        
+        
+            </select>
+
+
+
+
+        <label>
+            <input type="checkbox"name="bases\_y\_condiciones"value="acepta">
+        </label>
+
+        <input type="submit">
+
+
+
+    </form>
+
+</body>
+</html>

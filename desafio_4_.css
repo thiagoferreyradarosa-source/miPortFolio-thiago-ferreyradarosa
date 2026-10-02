@@ -1,0 +1,35 @@
+
+
+#container {
+    width: 80%;
+    margin: 0 auto;
+}
+ #container img {
+    width: 30%;
+    margin: 1.4%;
+}
+
+h1 {
+    margin-left: 2.4%;
+    font-size: 40px;
+    text-transform: uppercase;
+    border-bottom: 4px solid #507905c4;
+    padding-bottom: 20px;
+    width: 44%;
+}
+
+footer {
+    width: 80%;
+    margin: 40px auto;
+    padding-left: 1.4%;
+}
+
+footer a {
+    color: #507905c4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

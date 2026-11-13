@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprobado por Chuck Norris</title>
+    <style>
+        body {
+            background-color: #f4f1ea;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        img {
+            max-width: 250px;
+            height: auto;
+        }
+
+        h1 {
+            color: #222;
+            margin: 15px 0;
+        }
+
+        button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        h2 {
+            text-align: center;
+            padding: 10px;
+            border: 2px black dashed;
+            min-height: 40px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://i.imgur.com/hLldhia.png" alt="Chuck Norris">
+        <h1>Aprobado por Chuck Norris</h1>
+        <button id="btn-actualizar">ACTUALIZAR</button>
+        <h2 id="chiste"></h2>
+    </div>
+
+    <!-- Importamos jQuery para poder utilizar $.getJSON -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        const url = "https://api.chucknorris.io/jokes/random";
+        const h2 = document.querySelector("h2");
+        const boton = document.querySelector("button");
+
+        // Función que consulta la API y actualiza el DOM
+        function obtenerChiste() {
+            $.getJSON(url, function(data) {
+                h2.textContent = data.value;
+            });
+        }
+
+        // Cargamos un primer chiste apenas abre la página
+        obtenerChiste();
+
+        // Evento click para traer un chiste nuevo cada vez que se presiona el botón
+        boton.addEventListener("click", function() {
+            obtenerChiste();
+        });
+    </script>
+</body>
+</html>

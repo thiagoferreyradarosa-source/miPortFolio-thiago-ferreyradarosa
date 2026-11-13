@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Channel</title>
+    <style>
+        html {
+            background-attachment: fixed;
+            background-color: #0a0a0a; 
+            background-position: -64px;
+            background-repeat: no-repeat;
+            height: 100%;
+            overflow: auto;
+        }
+
+        body {
+            color: #f3f4f6; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 50px;
+            margin: 0;/*futurama*/
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+        }
+
+        input, button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        input {
+            background-color: #1f2937;
+            color: #ffffff;
+            border: 1px solid #374151;
+            margin-right: 10px;
+            width: 240px;
+        }
+
+        input::placeholder {
+            color: #9ca3af;
+        }
+
+        button {
+            background-color: #84cc16;
+            color: #000000; 
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #65a30d; 
+        }
+
+        .container {
+            visibility: hidden;
+            background: #18181b; 
+            border: 1px solid #27272a;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+            width: 280px;
+        }
+
+        .container img {
+            width: 90px;
+            height: 90px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        #ciudad {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        #temperatura {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #84cc16; 
+        }
+
+        #descripcion {
+            text-transform: capitalize;
+            font-size: 1.1rem;
+            color: #9ca3af; 
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <div class="search-box">
+        <input type="text" id="inputCiudad" placeholder="Ingresá una ciudad...">
+        <button id="btnBuscar">Buscar</button>
+    </div>
+
+    <div class="container">
+        <span id="ciudad"></span>
+        <img id="icono" src="" alt="Ícono clima">
+        <div id="temperatura"></div>
+        <div id="descripcion"></div>
+    </div>
+
+    <script>
+        function cargarCiudad(ciudad) {
+            const apiKey = "fdd533266e28101881f610f2b8f1ebe1";
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`;
+
+            $.getJSON(url, function(data) {
+                console.log(data);
+
+                document.querySelector(".container").style.visibility = "visible";
+                document.querySelector("#ciudad").textContent = data.name;
+                document.querySelector("#temperatura").innerHTML = `${Math.round(data.main.temp)} <sup>°C</sup>`;
+                
+                const iconoCodigo = data.weather[0].icon;
+                document.querySelector("#icono").src = `https://openweathermap.org/img/wn/${iconoCodigo}@2x.png`;
+                document.querySelector("#descripcion").textContent = data.weather[0].description;
+
+            }).fail(function() {
+                alert("No pudimos encontrar la ciudad ingresada. Por favor, verificá el nombre.");
+            });
+        }
+
+        $(document).ready(function() {
+            cargarCiudad("Buenos Aires");
+
+            $("#btnBuscar").on("click", function(e) {
+                e.preventDefault();
+                
+                const ciudad = $("#inputCiudad").val().trim();
+
+                if (ciudad !== "") {
+                    cargarCiudad(ciudad);
+                } else {
+                    alert("Por favor, ingresá una ciudad.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="for.css">
+    <title>Thiago Ferreyra Darosa - Portafolio</title>
+    <style>
+
+        :root {
+            --bg-color: #0b0b0b;        
+            --card-bg: #161616;  
+            --surface-color: #222222;    
+            --text-primary: #f3f4f6;   
+            --text-muted: #9ca3af; 
+            --accent-color: #a3e635;    
+            --accent-hover: #bef264;     
+            --border-radius: 12px;   
+            --transition: all 0.3s ease; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0; /*futurama*/
+        } 
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.4rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+       
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.8rem;
+            transition: var(--transition);
+            border: 1px solid #2a2a2a;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px -10px rgba(163, 230, 53, 0.15);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background-color: var(--surface-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #333333;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            background-color: #050505;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 2rem 1rem;
+            }
+            .project-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Thiago Ferreyra Da rosa</h1>
+        
+     
+        <div class="profile-pic-container">
+            <img src="tu-foto.jpg" alt="futurama" class="profile-pic">
+        </div>
+
+        <p></p>
+    </header>
+
+    <div class="wrapper">
+        <section id="about">
+            <h2>Sobre mí</h2>
+            <p></p>
+        </section>
+
+        <section id="skills">
+            <h2>Habilidades</h2>
+            <div class="skills-list">
+               mis Habilidades son:
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Mis Proyectos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción breve de qué hace el proyecto, el problema que resuelve y las tecnologías empleadas.</p>
+                    <a href="#" target="_blank">Ver proyecto &rarr;</a>
+                </div>
+                <div class="project-card">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción breve del segundo proyecto destacando tus logros o métricas importantes.</p>
+                    <a href="#" target="_blank">Ver proyecto &rarr;</a>
+                </div>
+                <div class="project-card">
+                    <h3>Proyecto 3</h3>
+                    <p>Descripción breve del segundo proyecto destacando tus logros o métricas importantes.</p>
+                    <a href="#" target="_blank">Ver proyecto &rarr;</a>
+                </div>
+                 <div class="project-card">
+                    <h3>Proyecto 4</h3>
+                    <p>Descripción breve del segundo proyecto destacando tus logros o métricas importantes.</p>
+                    <a href="#" target="_blank">Ver proyecto &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contacto</h2>
+            <p>¿Quieres contactarme? Escríbeme a mi correo <a href="mailto:thiagoferreyradarosa@gmail.com">thiagoferreyradarosa@gmail.com</a>, contáctame por teléfono al <a href="tel:+5491151161650">+54 9 11 5116-1650</a>, o visítame en mi <a href="https://www.instagram.com/tu_usuario_de_instagram" target="_blank">Instagram</a>.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Thiago Ferreyra Da rosa. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

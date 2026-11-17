@@ -1,0 +1,22 @@
+        .profile-pic-container {
+            margin: 1.5rem auto;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            overflow: hidden;  
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 10px 25px -5px rgba(163, 230, 53, 0.2);
+            transition: var(--transition);
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .profile-pic-container:hover {
+            transform: scale(1.03);
+            border-color: var(--accent-hover);
+        } /*futurama*/
